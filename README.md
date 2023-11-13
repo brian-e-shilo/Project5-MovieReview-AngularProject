@@ -1,3 +1,5 @@
+PDF(with screenshots) - https://rb.gy/v215ld
+
 Q. Implement an Application in AngularJs, 
 with minimum two components. Investigate how to perform Unit 
 Testing for any two components in the Application, write appropriate 
