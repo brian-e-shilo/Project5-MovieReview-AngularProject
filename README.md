@@ -1,6 +1,8 @@
 # Movie Review
 
-PDF(with code and screenshots) - https://rb.gy/v215ld
+PDF - https://rb.gy/v215ld
+
+Codezip - https://rb.gy/v7ydxb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
