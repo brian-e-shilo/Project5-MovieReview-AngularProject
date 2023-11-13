@@ -9,16 +9,23 @@ dependency injection, use
 of pipes and structural directives. Do it in a group (minimum 3 
 students and maximum 5 
 students). Same Groups of DA-1can be Continued. 
+
+
 Title of the Project: “Rotten Potatoes” – Online Movie reviews web 
 application 
+
 Aim: Create a Single Page Application (SPA) using Angular that allows 
 users to explore and rate movies.
+
 Introduction 
+
 The project is a Single Page Application (SPA) built with Angular, 
 designed to provide users with an interactive platform for exploring 
 and rating movies. It incorporates various Angular features and offers 
 a seamless user experience through dynamic navigation and realtime movie data. 
+
 Angular Features 
+
 - Routing and Navigation 
 - Components and Templates 
 - Services and Dependency Injection 
@@ -26,9 +33,12 @@ Angular Features
 - Two-way Data Binding 
 - Forms and Validation 
 - ngFor and ngIf for dynamic content 
-- Angular Modules for code organization 
-Components and Functions 
-1. Login Component: 
+- Angular Modules for code organization
+  
+Components and Functions
+
+1. Login Component:
+
  - Handles user authentication. 
  - Validates user credentials. 
 There are many functions used in this login component like login(), 
@@ -36,8 +46,10 @@ Login Component, beforeEach().
 -Login(): 
  It handles with the input given by the user in login page. 
  It display an error message if any of the requirements are not 
-met. 
+met.
+
 Code: 
+
 login() { 
  if(this.username.trim().length == 0) { 
  this.errorMsg = "Username is required"; 
@@ -55,11 +67,15 @@ login() {
  } 
  } 
  } 
+ 
 -LoginComponent(): 
+
  We have included login function in this function which 
 implements OnInit() function. 
  It comes under typescript. 
+
 Code: 
+
 export class LoginComponent implements OnInit { 
  username=""; 
  password=""; 
@@ -103,7 +119,9 @@ beforeEach(() => {
  expect(component).toBeTruthy(); 
  }); 
 }); 
-2. Header Component 
+
+2. Header Component
+   
 There are many functions used like beforeEach(), it(). 
 -beforeEach() 
  It is used to fetch the dependencies with the help of injection 
@@ -130,7 +148,9 @@ Code:
 logout() { 
  this.router.navigate(['login']); 
  } 
-3. Movie Details Component 
+ 
+3. Movie Details Component
+   
  - Displays detailed information about a selected movie. 
  - Allows users to rate and review movies. 
 Functions used like getTheMovie(), beforeEach(). ngOnIt(). 
@@ -176,9 +196,11 @@ ngOnInit(): void {
  if (this.type === 'popular') { 
  this.url = 'http://localhost:4200/assets/data/popularmovies.json'; 
  } 
- this.getMovie(); 
- } 
-4. Home Component 
+ this.getMovie();
+ }
+ 
+4. Home Component
+
  - Handles home functionality. 
 There are functions used like beforeEach(), it(), ngOnInit(), 
 getTrendingMovies, getTheatreMovies, getPopularMovies. 
@@ -241,8 +263,9 @@ getPopularMovies() {
  .subscribe((movies) => { 
  this.popularMovies = movies; 
  }); 
- } 
-5. Service Component: 
+
+5. Service Component:
+
 There are functions like logout(), login(), AuthService(). 
 -Logout(): 
  This function is used to navigate to the login page from the 
@@ -263,32 +286,27 @@ login(uname: string,pword: string) {
  return 403; 
  } 
  } 
+ 
 Routing and Navigation: 
+
 - The application uses Angular's routing to navigate between different 
 components/pages, such as the login page, landing page, and movie 
 details page. 
-- Routing is configured in the `app-routing.module.ts` file. 
+- Routing is configured in the `app-routing.module.ts` file.
+
 Service and Dependencies: 
+
 1. Authentication Service: 
  - Manages user authentication. 
 2. Movie Service: 
  - Handles movie data retrieval from an external API. 
 3. Rating Service: 
-- Manages user ratings for movies. 
-Screenshots: 
-Screenshots showcasing the various features of the project, including 
-the login page, landing page, movie details, and the user rating 
-interface: 
-Initial login page 
-When only username is inputted.
-When Incorrect input is entered. 
-Home page: 
-When a particular movie is clicked. 
-When the input is given. 
-When clicked on logout, it will be redirected to the login page. 
-Unit Testing using Jasmine and Karma 
+- Manages user ratings for movies.
+  
 Test Cases: 
+
 Modified code in login component: 
+
 1) login.component.spec.ts : 
  Here, the extra code added was marked in bold. 
  Here, import FormsModule, ReactiveFormsModule from angular/forms. 
@@ -317,8 +335,9 @@ describe('LoginComponent', () => {
  it('testing title',() => { 
  expect(component.componentName).toBe("login") 
  }) 
-}); 
-2) login.component.ts: 
+
+1) login.component.ts:
+
  Add the component name here for linking it with the 
 login.component.spec.ts file using componentNmae keyword as shown 
 below. 
@@ -358,7 +377,9 @@ export class LoginComponent implements OnInit {
  } 
  
 } 
+
 Modified code added in home component:
+
 1) home.component.spec.ts: 
  Likewise login component, do the changes in the home component. 
  Here, import FormsModule, ReactiveFormsModule from angular/forms. 
@@ -402,7 +423,9 @@ ReactiveFormsModule],
  expect(component.componentName).toBe("home") 
  }) 
 }); 
-2) home.component.ts: 
+
+2) home.component.ts:
+   
  Add the component name here for linking it with the 
 login.component.spec.ts file using componentNmae keyword as shown 
 below. 
@@ -452,7 +475,9 @@ export class HomeComponent implements OnInit {
  this.router.navigate(['movie', type, id]); 
  } 
 } 
+
 Modified code added in movie component: 
+
 1) movie.component.spec.ts: 
  Likewise home component, do the changes in the home component. 
  Here, import FormsModule, ReactiveFormsModule from angular/forms. 
@@ -499,8 +524,9 @@ activatedRoute }],
  it('testing title',() => { 
  expect(component.componentName).toBe("movie") 
  }) 
-}); 
-2) movie.component.ts: 
+
+1) movie.component.ts:
+   
  Add the component name here for linking it with the 
 login.component.spec.ts file using componentNmae keyword as shown 
 below. 
@@ -548,8 +574,11 @@ HttpClient) {}
  }); 
  } 
 } 
+
 Modified code added in header component: 
-1) header.component.spec.ts: 
+
+1) header.component.spec.ts:
+   
  Likewise home component, do the changes in the home component. 
  Here, import FormsModule, ReactiveFormsModule from angular/forms. 
  In beforeEach() function, import the above two modules using “imports” 
@@ -579,7 +608,9 @@ describe('HeaderComponent', () => {
  expect(component.componentName).toBe("header") 
  })
 }); 
-2) header.component.ts: 
+
+3) header.component.ts:
+   
  Add the component name here for linking it with the 
 login.component.spec.ts file using componentNmae keyword as shown 
 below. 
@@ -606,8 +637,11 @@ export class HeaderComponent {
  
  
 } 
+
 Modified code added in star-rating component: 
-1) star-rating.component.spec.ts: 
+
+1) star-rating.component.spec.ts:
+   
  Likewise home component, do the changes in the home component. 
  Here, import FormsModule, ReactiveFormsModule from angular/forms. 
  In beforeEach() function, import the above two modules using “imports” 
@@ -639,7 +673,9 @@ describe('StarRatingComponent', () => {
  expect(component.componentName).toBe("star-rating") 
  }) 
 }); 
-2) star-rating.component.ts: 
+
+2) star-rating.component.ts:
+   
  Add the component name here for linking it with the 
 login.component.spec.ts file using componentNmae keyword as shown 
 below. 
@@ -659,8 +695,11 @@ export class StarRatingComponent implements OnInit {
  // Initialization code here
  } 
 } 
+
  Default test case in all components: 
-1) Login component: 
+
+1) Login component:
+   
 import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 import { LoginComponent } from './login.component'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
@@ -684,10 +723,11 @@ FormsModule
  expect(component.componentName).toBe("login") 
  }) 
 }); 
- The bold code in the above code represents the default test case comes 
-when we create a component. 
+
  It checks whether the component is really created or not. 
-2) Home Component: 
+
+3) Home Component:
+   
 import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 import { HomeComponent } from './home.component'; 
 import { HeaderComponent } from '../header/header.component'; 
@@ -725,8 +765,10 @@ ReactiveFormsModule],
 }); 
  The highlighted code above is the default code checking whether the 
 component is really created or not. 
- It is actually a test acse. 
-3) Header Component: 
+ It is actually a test case. 
+
+3) Header Component:
+   
 import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 import { HeaderComponent } from './header.component'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
@@ -750,10 +792,11 @@ FormsModule
  expect(component.componentName).toBe("header") 
  }) 
 }); 
- The highlighted code above represents the default test case which comes 
-when we create a component. 
+
  It checks whether the component is really existing or not. 
-4) Movie Component: 
+
+5) Movie Component:
+   
 import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 import { HomeComponent } from '../home/home.component'; 
 import { HeaderComponent } from '../header/header.component'; 
@@ -796,7 +839,9 @@ activatedRoute }],
 }); 
  The highlighted code above denotes the default test case as mentioned 
 above. 
-5) Star rating component: 
+
+7) Star rating component:
+   
 import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 import { StarRatingComponent } from './star-rating.component'; 
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap'; 
@@ -835,8 +880,10 @@ times.
 - Enhance user profile management and movie recommendations. 
 - Incorporate user authentication via social media. 
 - Implement a backend to store and manage user data, reviews, and 
-ratings. 
+ratings.
+
 Conclusion 
+
 The Angular-based Single Page Application (SPA) project successfully 
 demonstrates the use of various Angular features for creating an 
 interactive movie exploration and rating platform. It offers dynamic 
